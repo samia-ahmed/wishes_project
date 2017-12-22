@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Item Deets</title>
+    </head>
+    <body>
+        <button><a href="/wishes">Home</a></button>
+        <button><a href="/login_reg/logout">Logout</a></button>
+        <h1>{{wish.item}}</h1>
+        <h3>Users who added this item to their Wish Lists</h3>
+
+        {% for buddy in wish_buddies %}
+            {{buddy.name}}</br>
+        {% endfor %}
+
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add New Item</title>
+    </head>
+    <body>
+        <button><a href="/wishes">Home</a></button>
+        <button><a href="/login_reg/logout">Logout</a></button>
+        {% if messages %}
+            {% for error in messages %}
+            <p>{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <h3>Create a New Wish List Item</h3>
+
+            <form class="" action="/wishes/add_item/" method="post">
+                {% csrf_token %}
+
+                <fieldset>
+                <label for="">Item/Product:</label>
+                <input type="text" name="item" value="">
+                </fieldset>
+                <input type="submit" name="" value="Add Item!">
+
+            </form>
+    </body>
+</html>

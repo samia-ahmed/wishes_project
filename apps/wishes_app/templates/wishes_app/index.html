@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome</title>
+    </head>
+    <body>
+        <h2>Hello {{cur_user.name}}</h2>
+
+            <h3>Your Wish List</h3>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Added By</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for wish in all_wishes %}
+                    <tr>
+                        <td>{{ wish.item }}</td>
+                        <td>{{ wish.created_by.name }}</td>
+                        <td>{{ wish.date_added }}</td>
+                        <td><a href="/wishes/remove/{{ wish.id }}">Remove From My Wish List</a> | <a href="/wishes/delete/{{ wish.id }}">Delete Item</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+            <h3>Other Users' Wish Lists</h3>
+            <table border = "1">
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Added By</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for wish in other_wishes %}
+                    <tr>
+                        <td><a href="/wishes/display/{{ wish.id }}"> {{ wish.item }}</a></td>
+                        <td>{{ wish.created_by.name }}</td>
+
+                        <td>{{ wish.date_added}}</td>
+                        <td><a href="/wishes/join/{{ wish.id }}">Add to my Wishlist</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        <button><a href="/login_reg/logout">Logout</a></button>
+        <button><a href="/wishes/add_page">Add New Item</a></button>
+
+    </body>
+</html>
